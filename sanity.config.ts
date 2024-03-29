@@ -6,9 +6,10 @@ import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import StudioNavbar from "./components/studio/StudioNavbar";
+import { presentationTool } from "sanity/presentation";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId } from "./sanity/env";
+import { apiVersion, dataset, projectId, previewUrl } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import { myTheme } from "./theme";
 import { media } from "sanity-plugin-media";
@@ -27,6 +28,7 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     media(),
+    presentationTool({ previewUrl }),
   ],
   studio: {
     components: {
