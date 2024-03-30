@@ -9,9 +9,10 @@ import StudioNavbar from "./components/studio/StudioNavbar";
 import { presentationTool } from "sanity/presentation";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId, previewUrl } from "./sanity/env";
+import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import { myTheme } from "./theme";
+// import { locate } from "./locate";
 import { media } from "sanity-plugin-media";
 
 export default defineConfig({
@@ -28,7 +29,14 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     media(),
-    presentationTool({ previewUrl }),
+    // presentationTool({ previewUrl, locate }),
+    presentationTool({
+      previewUrl: {
+        draftMode: {
+          enable: "/api/draft",
+        },
+      },
+    }),
   ],
   studio: {
     components: {

@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 // import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { draftMode } from "next/headers";
+import LiveVisualEditing from "@/components/client/LiveVisualEditing";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +22,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          {draftMode().isEnabled && <LiveVisualEditing />}
         </ThemeProvider>
       </body>
     </html>

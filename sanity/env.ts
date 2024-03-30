@@ -11,8 +11,8 @@ export const projectId = assertValue(
   "Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID"
 );
 
-export const previewUrl =
-  process.env.SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
+// export const previewUrl =
+//   process.env.SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
 
 export const useCdn = false;
 
