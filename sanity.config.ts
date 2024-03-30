@@ -12,7 +12,7 @@ import { presentationTool } from "sanity/presentation";
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import { myTheme } from "./theme";
-// import { locate } from "./locate";
+import { locate } from "./sanity/presentation/locate";
 import { media } from "sanity-plugin-media";
 
 export default defineConfig({
@@ -28,9 +28,11 @@ export default defineConfig({
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    // media
     media(),
-    // presentationTool({ previewUrl, locate }),
+    // presentationTool
     presentationTool({
+      locate,
       previewUrl: {
         draftMode: {
           enable: "/api/draft",
